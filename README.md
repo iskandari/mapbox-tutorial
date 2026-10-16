@@ -2,7 +2,7 @@
 
 Four small maps to get you started on Windows.
 
-## 1. Get ready
+## 1. Setup
 
 - [Create a Mapbox account](https://account.mapbox.com/auth/signup/). After signing in, open [Access tokens](https://account.mapbox.com/access-tokens/) and copy your **default public token** (it starts with `pk.`).
 - [Install Python for Windows](https://www.python.org/downloads/windows/) using the **Python install manager**.
@@ -22,7 +22,7 @@ Leave that window open. Open **http://127.0.0.1:8000** in Edge or Chrome.
 
 Paste your Mapbox public token into the box and click **Save token**. Then choose an example.
 
-## 3. Try the maps
+## 3. Edit the maps
 
 | Example | Try this |
 | --- | --- |
@@ -44,7 +44,7 @@ When finished, press **Ctrl+C** in the command window to stop the server.
 
 Your token is saved only in this browser’s local storage; use a public `pk.` token, never a secret token.
 
-## Where the examples come from
+## Source
 
 These are simplified adaptations of Mapbox’s [basic map](https://docs.mapbox.com/mapbox-gl-js/example/simple-map/), [markers](https://docs.mapbox.com/mapbox-gl-js/example/add-a-marker/), [marker popup](https://docs.mapbox.com/mapbox-gl-js/example/set-popup/), and [GeoJSON line](https://docs.mapbox.com/mapbox-gl-js/example/geojson-line/) examples. They use Mapbox GL JS 3.33.0 from Mapbox’s CDN. No extra Python packages or build tools are needed.
 
