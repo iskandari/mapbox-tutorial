@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapbox — four small examples</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <small>YOUR FIRST WEB MAPS</small>
+    <h1>Start with a map.</h1>
+    <p>Four small examples. Open one, explore it, then try changing its HTML file.</p>
+    <form id="token-form">
+      <label for="token">Your Mapbox public token</label>
+      <p><a href="https://account.mapbox.com/auth/signup/">Create a Mapbox account</a>, then copy your default public token from <a href="https://account.mapbox.com/access-tokens/">Access tokens</a>.</p>
+      <input id="token" type="text" placeholder="pk.…" autocomplete="off" spellcheck="false" required aria-describedby="token-note">
+      <small id="token-note">Saved in this browser only. Use a public token starting with pk.</small><br>
+      <button type="submit">Save token</button>
+      <p id="status" role="status"></p>
+    </form>
+    <ol>
+      <li><a href="01-basic-map.html">Basic map</a> — pan and zoom.</li>
+      <li><a href="02-markers.html">Markers</a> — put two pins on the map.</li>
+      <li><a href="03-popup.html">Popup</a> — click a pin to read a message.</li>
+      <li><a href="04-line.html">Line</a> — draw a route with coordinates.</li>
+    </ol>
+    <p><small>Keep your Python server running and stay connected to the internet.</small></p>
+  </main>
+  <script>
+    const input = document.querySelector('#token');
+    const status = document.querySelector('#status');
+    try {
+      input.value = localStorage.getItem('mapbox-public-token') || '';
+      if (input.value) status.textContent = 'Token saved. Choose an example below.';
+    } catch (error) {
+      status.textContent = 'Allow browser storage for this local site to save your token.';
+    }
+    document.querySelector('#token-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const token = input.value.trim();
+      if (!token.startsWith('pk.')) {
+        status.textContent = 'Use your public token: it starts with pk.';
+        return;
+      }
+      try {
+        localStorage.setItem('mapbox-public-token', token);
+        status.textContent = 'Token saved. Choose an example below.';
+      } catch (error) {
+        status.textContent = 'Allow browser storage for this local site, then try again.';
+      }
+    });
+  </script>
+</body>
+</html>

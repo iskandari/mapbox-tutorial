@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1. Basic map</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.js"></script>
+</head>
+<body class="map-page">
+  <header><a href="index.html">← All examples</a><span>1. Basic map · Drag to move. Scroll to zoom.</span></header>
+  <div id="notice" class="notice" role="alert" hidden></div>
+  <div id="map" aria-label="Interactive map"></div>
+  <script src="setup.js"></script>
+  <!-- Simplified adaptation: https://docs.mapbox.com/mapbox-gl-js/example/simple-map/ -->
+  <script>
+    if (MAPBOX_TOKEN.startsWith('pk.') && window.mapboxgl && mapboxgl.supported()) {
+    // Coordinates are [longitude, latitude]. Try changing zoom to 12.
+    const map = new mapboxgl.Map({
+      container: 'map',
+      accessToken: MAPBOX_TOKEN,
+      style: 'mapbox://styles/mapbox/standard',
+      center: [-77.0353, 38.8895],
+      zoom: 11
+    });
+    reportMapErrors(map);
+    }
+  </script>
+</body>
+</html>

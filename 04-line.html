@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4. Line</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.js"></script>
+</head>
+<body class="map-page">
+  <header><a href="index.html">← All examples</a><span>4. Line · A simple line joining three coordinates.</span></header>
+  <div id="notice" class="notice" role="alert" hidden></div>
+  <div id="map" aria-label="Interactive map"></div>
+  <script src="setup.js"></script>
+  <!-- Simplified adaptation: https://docs.mapbox.com/mapbox-gl-js/example/geojson-line/ -->
+  <script>
+    if (MAPBOX_TOKEN.startsWith('pk.') && window.mapboxgl && mapboxgl.supported()) {
+    const map = new mapboxgl.Map({
+      container: 'map',
+      accessToken: MAPBOX_TOKEN,
+      style: 'mapbox://styles/mapbox/standard',
+      center: [-77.043, 38.8895],
+      zoom: 13
+    });
+    reportMapErrors(map);
+
+    // Wait until the map style is ready before adding data.
+    map.on('load', () => {
+      map.addSource('route', {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+            type: 'LineString',
+            coordinates: [
+              [-77.0502, 38.8893],
+              [-77.0438, 38.8894],
+              [-77.0353, 38.8895]
+            ]
+          }
+        }
+      });
+
+      // Try a different line color or width.
+      map.addLayer({
+        id: 'route-line',
+        type: 'line',
+        source: 'route',
+        slot: 'middle',
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: { 'line-color': '#237bd4', 'line-width': 6 }
+      });
+    });
+    }
+  </script>
+</body>
+</html>

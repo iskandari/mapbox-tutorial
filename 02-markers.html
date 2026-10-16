@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2. Markers</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.33.0/mapbox-gl.js"></script>
+</head>
+<body class="map-page">
+  <header><a href="index.html">← All examples</a><span>2. Markers · Find the blue and orange pins.</span></header>
+  <div id="notice" class="notice" role="alert" hidden></div>
+  <div id="map" aria-label="Interactive map"></div>
+  <script src="setup.js"></script>
+  <!-- Simplified adaptation: https://docs.mapbox.com/mapbox-gl-js/example/add-a-marker/ -->
+  <script>
+    if (MAPBOX_TOKEN.startsWith('pk.') && window.mapboxgl && mapboxgl.supported()) {
+    const map = new mapboxgl.Map({
+      container: 'map',
+      accessToken: MAPBOX_TOKEN,
+      style: 'mapbox://styles/mapbox/standard',
+      center: [-77.043, 38.8895],
+      zoom: 13
+    });
+    reportMapErrors(map);
+
+    // Try changing the second marker's color to 'purple'.
+    new mapboxgl.Marker({ color: '#237bd4' })
+      .setLngLat([-77.0353, 38.8895])
+      .addTo(map);
+
+    new mapboxgl.Marker({ color: '#e47928' })
+      .setLngLat([-77.0502, 38.8893])
+      .addTo(map);
+    }
+  </script>
+</body>
+</html>
