@@ -1,6 +1,6 @@
-# Mapbox, one example at a time
+# Mapbox tutorial
 
-Four small maps you can run on your Windows computer. No coding experience needed to get started.
+Four small maps to get you started on Windows.
 
 ## 1. Get ready
 
@@ -42,7 +42,7 @@ When finished, press **Ctrl+C** in the command window to stop the server.
 - **The map is blank:** check your internet connection and public token. Try the [original Mapbox map](https://docs.mapbox.com/mapbox-gl-js/example/simple-map/); if that is also blank, update Edge or Chrome and enable graphics acceleration in its settings.
 - **Port 8000 is in use:** replace `8000` with `8001` in both the command and browser address.
 
-Internet access is required. Mapbox usage is subject to your account’s [pricing and allowances](https://www.mapbox.com/pricing). Your token is saved only in this browser’s local storage; use a public `pk.` token, never a secret token.
+Your token is saved only in this browser’s local storage; use a public `pk.` token, never a secret token.
 
 ## Where the examples come from
 
